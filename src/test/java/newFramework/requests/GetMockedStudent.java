@@ -7,14 +7,14 @@ import newFramework.client.ExecutableRequest;
 
 import static io.restassured.RestAssured.given;
 
-public class GetStudent implements ExecutableRequest {
+public class GetMockedStudent implements ExecutableRequest {
 
     private final RequestSpecBuilder requestSpecBuilder;
 
-    public GetStudent(String id, RequestSpecBuilder requestSpecBuilder){
+    public GetMockedStudent(String name, RequestSpecBuilder requestSpecBuilder){
         this.requestSpecBuilder = requestSpecBuilder;
         this.requestSpecBuilder.setContentType(ContentType.JSON);
-        this.requestSpecBuilder.addPathParam("studentId",id);
+        this.requestSpecBuilder.addPathParam("first_name",name);
     }
 
     @Override
@@ -22,6 +22,6 @@ public class GetStudent implements ExecutableRequest {
         return given()
                 .spec(requestSpecBuilder.build())
                 .when()
-                .get("/api/studentsDetails/{studentId}");
+                .get("/api/studentsDetails/{first_name}");
     }
 }
