@@ -16,7 +16,9 @@ public class JUnitTipsTest {
         System.out.println("Name: "+ firstName);
         System.out.println("Address: "+ addressName);
         System.out.println("City: "+ cityName);
+
     }
+
 
 
 }
